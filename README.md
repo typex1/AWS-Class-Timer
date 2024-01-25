@@ -15,7 +15,7 @@
 
 ## How to use this solution?
 
-* Jump into a live example using this link: https://typex1.github.io/AWS-Class-Timer/Class_Timer_Arch_Day_1.html
+* See a link of live example references: https://typex1.github.io/AWS-Class-Timer/
 * Clone this github repo to your local machine
 * Open one of the HTML files in your browser (JavaScript enabled)
 * You can intuitively drag the time line from left to right, and also zoom in and out
