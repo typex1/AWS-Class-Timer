@@ -10,7 +10,7 @@
 * Plus, during the delivery, it also makes sense to get an idea whether you are in time or not (see red line which is "now").
 * Screenshot to get a better idea:
   
-![AWS class timer image](./img/aws-class-timer.png)
+![AWS class timer image](./img/aws-class-timer-2.png)
 
 ## How to use this solution?
 
