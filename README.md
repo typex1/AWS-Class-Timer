@@ -7,7 +7,8 @@
 ## Why shoud I bother?
 
 * When preparing for a new (AWS) training, it is always helpful to know which durations the different content items have.
-* Plus, during the delivery, it also makes sense to get an idea whether you are in time or not (see red line which is "now").
+* During the delivery, the view **dynamically** updates and tells you whether you are in time or not (see **red line** which is "now").
+* The underlying HTML can be easily modified to cover other trainings, durations and content titles.
 * Screenshot to get a better idea:
   
 ![AWS class timer image](./img/aws-class-timer-2.png)
