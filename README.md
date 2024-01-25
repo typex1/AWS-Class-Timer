@@ -4,11 +4,12 @@
 
 * AWS trainers or those who are interested in becoming one
 
-Why shoud I bother?
+## Why shoud I bother?
 
 * When preparing for a new (AWS) training, it is always helpful to know which durations the different content items have.
 * Plus, during the delivery, it also makes sense to get an idea whether you are in time or not (see red line which is "now").
 * Screenshot to get a better idea:
+  
 ![AWS class timer image](./img/aws-class-timer.png)
 
 ## How to use this solution?
