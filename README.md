@@ -19,7 +19,8 @@
 * You can intuitively drag the time line from left to right, and also zoom in and out
 * If your class starts at 10am instead of 9am, modify the HTML line which says "startTime = 9" (currently line #48)
 * If you want to adjust to a different class, just modify titles and durations (in minutes) in the JS array "titles" starting from line #57.
+* I will add HTML files for other classes soon!
 
 ## Project used
 
-I used this great project for this: https://visjs.github.io/vis-timeline/examples/timeline/
+I used this great project for my solution: https://visjs.github.io/vis-timeline/examples/timeline/
