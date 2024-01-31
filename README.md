@@ -25,4 +25,4 @@
 
 ## Project used
 
-I used this great project for my solution: https://visjs.github.io/vis-timeline/examples/timeline/
+I used this great project as a basis for my solution: https://visjs.github.io/vis-timeline/examples/timeline/
