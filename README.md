@@ -26,3 +26,7 @@
 ## Project used
 
 I used this great project as a basis for my solution: https://visjs.github.io/vis-timeline/examples/timeline/
+
+## To do
+
+From the above project link, add "Tooltips", i.e. additional tooltip content which is shown at a mouseOver event
