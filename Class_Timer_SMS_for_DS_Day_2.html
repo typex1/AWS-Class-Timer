@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <!-- JavaScript project used: https://visjs.github.io/vis-timeline/docs/timeline/ -->
   <!-- View examples here: https://visjs.github.io/vis-timeline/examples/timeline/ -->
-  <script src="./js/vis-timeline-graph2d.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.js" integrity="sha512-Qf8QaMU6tjILOhQdWoXk3guYmm4dTOEgYbtYoGmQpdd4c4BEl/TzHgFJW5UtXWwo9VJYDnig38DVhl09JNVfLg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="./js/vis-timeline-graph2d.min.js"></script> -->
   <style type="text/css">
     body, input {
       font: 12pt verdana;
@@ -54,19 +55,20 @@
   today9am=Date.parse(now);
   minute=60000;
   
+  //entries: item name, e.g. "Module 1", duration in minutes, optional tooltip
   titles = [
-  ["Module 3",74],
-  ["Break",10],
-  ["Lab 7",45],
-  ["Lab 8",60],
-  ["Lunch Break",60],
-  ["Module 4",60],
-  ["Break",10],
-  ["Lab 9",30],
-  ["Lab 10",90],
-  ["Break",10],
-  ["Module 5",25],
-  ["Demo",10],
+  ["Module 3",74,"Model Development"],
+  ["Break",10,""],
+  ["Lab 7",45,"SageMaker Debugger"],
+  ["Lab 8",60,"SageMaker Clarify"],
+  ["Lunch Break",60,""],
+  ["Module 4",60,"Deployment and<br/>Inference"],
+  ["Break",10,""],
+  ["Lab 9",90,"Pipelines and<br/>Model Monitor"],
+  ["Lab 10",30,"Inference Types"],
+  ["Break",10,""],
+  ["Module 5",25,"Monitoring"],
+  ["Demo",10,"Model Monitoring"],
   ["Day 2 end",0]];
 
   length = titles.length
@@ -88,6 +90,7 @@
         // 3,600,000 -> 3600 seconds = 1 hour per Module
         //start: new Date(new Date().getTime() + i*3600000)
         start: new Date(today9am + shift),
+        title: titles[i][2],
         className: color
     });
     //if (i < length && i > 0){
