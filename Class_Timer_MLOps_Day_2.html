@@ -1,0 +1,133 @@
+<html>
+<head>
+  <title>MLOps, Day 2</title>
+  <meta charset="utf-8">
+  <!-- JavaScript project used: https://visjs.github.io/vis-timeline/docs/timeline/ -->
+  <!-- View examples here: https://visjs.github.io/vis-timeline/examples/timeline/ -->
+  <script src="./js/vis-timeline-graph2d.min.js"></script>
+  <style type="text/css">
+    body, input {
+      font: 12pt verdana;
+    }
+
+    /* custom styles for individual items, load this after vis-timeline-graph2d.min.css/vis-timeline-graph2d.min.css */
+    .vis-item.green {
+      background-color: greenyellow;
+      border-color: green;
+    }
+
+    /* create a custom sized dot at the bottom of the red item */
+    .vis-item.red {
+      background-color: red;
+      border-color: darkred;
+      color: white;
+      font-family: monospace;
+      box-shadow: 0 0 10px gray;
+    }
+
+    .vis-item.orange {
+      background-color: gold;
+      border-color: orange;
+    }
+
+    .vis-item.magenta {
+      background-color: magenta;
+      border-color: purple;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<h1>Class timer "MLOps, Day 2"</h1>
+<div id="visualization"></div>
+<script>
+  var container = document.getElementById('visualization');
+  var items = new vis.DataSet();
+
+  //enter start time in full hours, e.g. 9am = 9
+  startTime = 10
+  now = new Date();
+  now.setHours(startTime);
+  now.setMinutes(0);
+  now.setSeconds(0);
+  //console.log(now)
+  today9am=Date.parse(now);
+  minute=60000;
+  
+  //entries: item name, e.g. "Module 1", duration in minutes, optional tooltip
+  titles = [
+  ["Day 1 review",20,""],
+  ["Module 4",10,"Orch. with Step Functions"],
+  ["Lab 2",45,"Workflow with Step Functions"],
+  ["Break",10,""],
+  ["Module 4",30,"SageMaker Projects"],
+  ["Demo 3",30,"SageMaker Projects"],
+  ["Break",10,""],
+  ["Module 4",5,"3rd party tools"],
+  ["Demo 4",15,"Human in the loop"],
+  ["Lunch Break",60,""],
+  ["Module 4",10,"Governance + Security"],
+  ["Demo 5",20,"Security Best Practices for SM"],
+  ["Module 4",10,"Intro to Reliable MLOps"],
+  ["Break",10,""],
+  ["Module 5",50,"Reliable MLOPs:<br/>Scaling and Multi Account"],
+  ["Break",10,""],
+  ["Module 5",10,"Integration Testing<br/>Stress Testing"],
+  ["Demo 6",10,"SM Inference Recommender"], 
+  ["Module 5",30,"Model Testing, Traffic Shifting"],
+  ["Break",10,""],
+  ["Lab 3",45,"Testing Model Variants"],
+  ["Day 2 end",0]];
+
+  length = titles.length
+  shift = 0;
+  color = '';
+  for (var i = 0; i < length; i++) {
+    //shift = shift + titles[length-i][1] * minute
+    if (titles[i][0].includes('Break')){
+      color='orange'
+    } else if(titles[i][0].startsWith('Lab')){
+      color = 'magenta'
+    } else if(titles[i][0].startsWith('Demo')){
+      color = 'red'
+    } else {
+      color = ''
+    }
+
+    items.add({
+        id: i,
+        content: titles[i][0],
+        // 3,600,000 -> 3600 seconds = 1 hour per Module
+        //start: new Date(new Date().getTime() + i*3600000)
+        start: new Date(today9am + shift),
+        title: titles[i][2],
+        className: color
+    });
+    //if (i < length && i > 0){
+    shift = shift + titles[i][1] * minute
+    //}
+  }
+
+  // Configuration for the Timeline
+  // specify options
+  var options = {
+    start: new Date(),
+    //end: new Date(new Date().getTime() + 1,000,000) -> 1 mio milliseconds = 1000 seconds = 16.6 minutes
+    // 36,000,000 -> span of 9 hours initially visible
+    end: new Date(new Date().getTime() + 36000000),
+    rollingMode: {
+      follow: true,
+      // offset: 0.5
+      offset: 0
+    }
+  };
+
+  // create a Timeline
+  timeline = new vis.Timeline(container, items, null, options);
+</script>
+</body>
+<br/>
+<a href="https://typex1.github.io/AWS-Class-Timer/">Back to list</a>
+<br>Frank Spiess, 2024</br>
+<br/>
+</html>
